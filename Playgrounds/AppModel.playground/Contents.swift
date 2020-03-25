@@ -2,15 +2,19 @@ import UIKit
 
 struct Meal {
 
+    enum Category {
+        case first, main, desert, drink
+    }
+
     let name: String
-    let price: Double
-    let description: String
-    let category: String
+    var price: Double
+    var description: String
+    let category: Category
 
     let components: [Aliment]
     let calories: Double
 
-    var allergens: [String] {
+    var allergens: [Allergen] {
         return []
     }
     var isVegan: Bool {
@@ -24,15 +28,26 @@ struct Meal {
 
 struct Aliment {
     let name: String
-    let allergens: String
+    let allergens: [Allergen]
     let isVegan: Bool
     let isVeggie: Bool
 }
 
-struct Restaurant {
+enum Allergen {
+    case gluten
+    case fish
+    case lactose
+}
+
+class Restaurant {
 
     let name: String
-    private let menu: [Meal]
+    private var menu: [Meal]
+
+    init(name: String, menu: [Meal] = []) {
+        self.name = name
+        self.menu = menu
+    }
 
     func add(_ meal: Meal) {
 
@@ -46,3 +61,12 @@ struct Restaurant {
         return menu
     }
 }
+
+let farine = Aliment(name: "Farine", allergens: [.gluten], isVegan: true, isVeggie: true)
+let tomate = Aliment(name: "Tomate", allergens: [], isVegan: true, isVeggie: true)
+
+let pizza = Meal(name: "Pizza Reine", price: 12.5, description: "Une super pizza", category: .main, components: [farine, tomate], calories: 300)
+
+let chezConfiné = Restaurant(name: "Chez confiné", menu: [pizza])
+
+print(chezConfiné.list())
