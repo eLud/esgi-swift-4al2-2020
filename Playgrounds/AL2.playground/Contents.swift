@@ -125,4 +125,25 @@ print(myRectangle.center)
 print(myRectangle.origin)
 
 
+enum Genre {
+    case animated, action, romance, documentary, biography, thriller
 
+    var title: String {
+        switch self {
+        case .animated:
+            return "Animated"
+        case .action:
+            return "Action"
+        default:
+            return "Autre"
+        }
+    }
+}
+struct Movie {
+    var name: String
+    var releaseYear: Int
+    var genre: Genre
+}
+
+let findingDory = Movie(name: "Finding Dory", releaseYear: 2005, genre: .animated)
+findingDory.genre.title
