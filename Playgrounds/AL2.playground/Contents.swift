@@ -147,3 +147,120 @@ struct Movie {
 
 let findingDory = Movie(name: "Finding Dory", releaseYear: 2005, genre: .animated)
 findingDory.genre.title
+
+var tab: [String] = ["B", "A", "C", "A", "A"]
+let at1 = tab[1]
+tab.count
+
+tab.append("D")
+
+
+var dico: [String:Int] = ["Ludovic" : 10, "Paul" : 20]
+let score = dico["Paul"]
+
+dico["Robert"] = 30
+dico["Robert"] = 40
+
+let set: Set<String> = ["B", "A", "C", "A", "A"]
+set.count
+Set(tab)
+
+for letter in tab.enumerated() {
+    print(letter.element, letter.offset)
+}
+
+repeat {
+
+} while tab.isEmpty
+
+class Shoe: CustomStringConvertible {
+
+    let color: String
+    let size: Int
+    let hasLaces: Bool
+
+    init(color: String, size: Int, hasLaces: Bool) {
+        self.color = color
+        self.size = size
+        self.hasLaces = hasLaces
+    }
+
+    var description: String {
+        return "Shoe(color: \(color), size: \(size), hasLaces: \(hasLaces))"
+    }
+}
+
+let myShoe = Shoe(color: "Red", size: 42, hasLaces: true)
+print(myShoe)
+
+struct Employee: Hashable, Comparable {
+
+    let firstName: String
+    let lastName: String
+    let jobTitle: String
+    let phoneNumber: String
+
+    static func ==(lhs: Employee, rhs: Employee) -> Bool {
+        return lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName
+    }
+
+    static func < (lhs: Employee, rhs: Employee) -> Bool {
+        return lhs.lastName < rhs.lastName
+    }
+}
+
+protocol Flying {
+    var maxAltitude: Int { get }
+    var currentAltitude: Int { get set }
+
+    func takeOff()
+    func land()
+}
+
+struct Bird: Flying {
+
+    var age: Int
+    var specie: String
+    var maxAltitude: Int
+    var currentAltitude: Int = 0
+
+    func takeOff() {
+
+    }
+
+    func land() {
+
+    }
+}
+
+class Plane: Flying {
+
+    var company: String
+    var model: String
+    var maxAltitude: Int
+    var currentAltitude: Int
+
+    init(company: String, model: String, maxAlt: Int) {
+        self.company = company
+        self.model = model
+        self.maxAltitude = maxAlt
+        self.currentAltitude = 0
+    }
+
+    func takeOff() {
+
+    }
+
+    func land() {
+
+    }
+}
+
+let aBird = Bird(age: 1, specie: "Mouette", maxAltitude: 1000)
+let plane = Plane(company: "AF", model: "A380", maxAlt: 10000)
+
+let sky: [Flying] = [aBird, plane]
+
+for truc in sky {
+    truc.land()
+}
