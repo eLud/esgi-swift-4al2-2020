@@ -8,13 +8,15 @@ struct Meal: Hashable, Comparable, CustomStringConvertible {
 
     let name: String
     var price: Double
-    var pitch: String
+    var pitch: String?
     let category: Category
 
-    let components: Set<Aliment>
-    let calories: Double
+    let components: Set<Aliment>?
+    let calories: Double?
 
-    var allergens: Set<Allergen> {
+    var allergens: Set<Allergen>? {
+        guard let components = components else { return nil }
+
         let allergens = components.flatMap { (aliment) in
             return aliment.allergens
         }
@@ -77,8 +79,9 @@ let tomate = Aliment(name: "Tomate", allergens: [], isVegan: true, isVeggie: tru
 
 let pizza = Meal(name: "Pizza Reine", price: 12.5, pitch: "Une super pizza", category: .main, components: [farine, tomate], calories: 300)
 let pizza2 = Meal(name: "Pizza 3 fromages", price: 12.5, pitch: "Une super pizza", category: .main, components: [farine, tomate], calories: 300)
+let calzone = Meal(name: "Calzone", price: 11, pitch: nil, category: .main, components: nil, calories: nil)
 
-let chezConfiné = Restaurant(name: "Chez confiné", menu: [pizza])
+let chezConfiné = Restaurant(name: "Chez confiné", menu: [pizza, calzone])
 chezConfiné.add(pizza2)
 
 print(chezConfiné.list())

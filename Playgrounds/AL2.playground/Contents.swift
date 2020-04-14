@@ -264,3 +264,29 @@ let sky: [Flying] = [aBird, plane]
 for truc in sky {
     truc.land()
 }
+
+struct Person {
+  var age: Int
+  var residence: Residence?
+}
+
+struct Residence {
+  var address: Address?
+}
+
+struct Address {
+  var buildingNumber: String
+  var streetName: String?
+  var apartmentNumber: String?
+}
+
+
+let adr = Address(buildingNumber: "86", streetName: nil, apartmentNumber: "42")
+let res = Residence(address: adr)
+let me = Person(age: 33, residence: res)
+
+if let buildingNumber = me.residence?.address?.buildingNumber {
+    print("Le numéro est le \(buildingNumber)")
+} else {
+    print("Impossible d'avoir le numéro de batiment")
+}
