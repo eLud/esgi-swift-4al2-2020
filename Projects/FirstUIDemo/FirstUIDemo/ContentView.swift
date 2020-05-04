@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var isPlaying = false
+    @State private var progress: Double = 0.5
 
     var body: some View {
         VStack {
@@ -27,8 +28,14 @@ struct ContentView: View {
                 Image(systemName: isPlaying ? "pause.circle" : "play.circle")
                 .resizable()
                 .frame(width: 40, height: 40)
-                    .foregroundColor(.white)
             }
+            HStack {
+                Text("\(progress)")
+                    .foregroundColor(.white)
+                Slider(value: $progress)
+            }
+            Stepper("Stepper", value: $progress, in: 0...1)
+                .background(Color.white)
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 20))
