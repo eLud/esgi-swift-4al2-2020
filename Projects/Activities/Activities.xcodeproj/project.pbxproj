@@ -13,6 +13,7 @@
 		339784D12460102A0088913B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339784D02460102A0088913B /* Assets.xcassets */; };
 		339784D42460102A0088913B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339784D32460102A0088913B /* Preview Assets.xcassets */; };
 		339784D72460102A0088913B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339784D52460102A0088913B /* LaunchScreen.storyboard */; };
+		339784DF24601E0B0088913B /* BGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339784DE24601E0B0088913B /* BGColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		339784D32460102A0088913B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		339784D62460102A0088913B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		339784D82460102A0088913B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		339784DE24601E0B0088913B /* BGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				339784CA246010250088913B /* AppDelegate.swift */,
 				339784CC246010250088913B /* SceneDelegate.swift */,
 				339784CE246010250088913B /* ContentView.swift */,
+				339784DE24601E0B0088913B /* BGColor.swift */,
 				339784D02460102A0088913B /* Assets.xcassets */,
 				339784D52460102A0088913B /* LaunchScreen.storyboard */,
 				339784D82460102A0088913B /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339784DF24601E0B0088913B /* BGColor.swift in Sources */,
 				339784CB246010250088913B /* AppDelegate.swift in Sources */,
 				339784CD246010250088913B /* SceneDelegate.swift in Sources */,
 				339784CF246010250088913B /* ContentView.swift in Sources */,
