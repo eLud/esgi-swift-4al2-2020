@@ -53,6 +53,12 @@ struct SliderBGColor: View {
 
 struct SliderBGColor_Previews: PreviewProvider {
     static var previews: some View {
-        SliderBGColor()
+        Group {
+            SliderBGColor()
+            SliderBGColor()
+                .environment(\.colorScheme, .dark)
+            SliderBGColor()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 6s"))
+        }
     }
 }
