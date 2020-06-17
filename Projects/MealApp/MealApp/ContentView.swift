@@ -17,11 +17,40 @@ let calzone = Meal(name: "Calzone", price: 11, pitch: nil, category: .main, comp
 
 struct ContentView: View {
 
-    var meal = calzone
+    var meal = pizza2
 
     var body: some View {
-        Text(meal.name)
-    }
+           VStack(alignment: .leading) {
+               Image("pizza")
+                   .resizable()
+                   .aspectRatio(contentMode: .fit)
+               Text("Plat")
+                   .padding([.horizontal], 10)
+                   .padding([.vertical], 2)
+                   .background(
+                       RoundedRectangle(cornerRadius: 10).foregroundColor(.green))
+               HStack(alignment: .firstTextBaseline) {
+                   Text(meal.name)
+                       .font(.title)
+                   Spacer()
+                   Text("\(meal.price)€")
+                       .font(.headline)
+                       .foregroundColor(.gray)
+               }.padding()
+               VStack(alignment: .leading) {
+                   Text(meal.pitch ?? "Un super plat !")
+                   if meal.components != nil {
+                       Text("Ingredients:")
+                           .font(.headline)
+                           .padding([.top], 8)
+                    ForEach(meal.components!.sorted( by: { $0.name > $1.name }), id: \.name) { (aliment) in
+                           Text(aliment.name)
+                       }
+                   }
+               }.padding()
+               Spacer()
+           }
+       }
 }
 
 struct ContentView_Previews: PreviewProvider {
