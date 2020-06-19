@@ -10,10 +10,23 @@ import SwiftUI
 
 struct MealList: View {
 
-    let resto = Restaurant(name: "Test")
+    let resto = Restaurant(name: "Test", menu: [calzone, pizza, pizza2])
 
     var body: some View {
-        Text("")
+        List(resto.list()) { meal in
+            Image("pizza")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40, height: 40)
+            VStack(alignment: .leading) {
+                Text(meal.name)
+                Text(meal.pitch ?? "Une valeur sûre")
+                    .font(.caption)
+            }
+            Spacer()
+            Text("\(meal.price)€")
+                .foregroundColor(.gray)
+        }
     }
 }
 

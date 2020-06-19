@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct Meal: Hashable, Comparable, CustomStringConvertible {
+struct Meal: Hashable, Comparable, CustomStringConvertible, Identifiable {
 
     enum Category {
         case first, main, desert, drink
     }
 
+    let id = UUID()
     let name: String
     var price: Double
     var pitch: String?
