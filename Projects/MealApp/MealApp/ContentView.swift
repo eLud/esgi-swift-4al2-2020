@@ -17,7 +17,7 @@ let calzone = Meal(name: "Calzone", price: 11, pitch: nil, category: .main, comp
 
 struct ContentView: View {
 
-    var meal = pizza2
+    var meal = pizza
 
     var body: some View {
            VStack(alignment: .leading) {
