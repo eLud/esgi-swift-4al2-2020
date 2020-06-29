@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    var meal = pizza
+    var meal: Meal
 
     var body: some View {
            VStack(alignment: .leading) {
@@ -48,6 +48,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(meal: pizza2)
     }
 }

@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  MealApp
+//  Modality
 //
-//  Created by Ludovic Ollagnier on 17/06/2020.
+//  Created by Ludovic Ollagnier on 29/06/2020.
 //  Copyright © 2020 Tectec. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = InitialTabView()
+        let contentView = ContentView()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

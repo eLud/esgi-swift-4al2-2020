@@ -10,8 +10,12 @@ import Foundation
 
 struct Meal: Hashable, Comparable, CustomStringConvertible, Identifiable {
 
-    enum Category {
+    enum Category: String, CaseIterable, Identifiable {
         case first, main, desert, drink
+
+        var id: Category {
+            return self
+        }
     }
 
     let id = UUID()

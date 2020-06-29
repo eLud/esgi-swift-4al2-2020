@@ -12,20 +12,33 @@ struct MealList: View {
 
     let resto = Restaurant(name: "Test", menu: [calzone, pizza, pizza2])
 
+    @State private var showForm = false
+
     var body: some View {
-        List(resto.list()) { meal in
-            Image("pizza")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
-            VStack(alignment: .leading) {
-                Text(meal.name)
-                Text(meal.pitch ?? "Une valeur sûre")
-                    .font(.caption)
+        NavigationView {
+            List(resto.list()) { meal in
+                NavigationLink(destination: ContentView(meal: meal)) {
+                    Image("pizza")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                    VStack(alignment: .leading) {
+                        Text(meal.name)
+                        Text(meal.pitch ?? "Une valeur sûre")
+                            .font(.caption)
+                    }
+                    Spacer()
+                    Text("\(meal.price)€")
+                        .foregroundColor(.gray)
+                }
             }
-            Spacer()
-            Text("\(meal.price)€")
-                .foregroundColor(.gray)
+            .navigationBarTitle("Meals")
+            .navigationBarItems(trailing: Button("Add") {
+                self.showForm.toggle()
+            })
+                .sheet(isPresented: $showForm) {
+                    AddMealView(restaurant: self.resto)
+            }
         }
     }
 }
